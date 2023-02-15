@@ -1,5 +1,6 @@
 img{
     width: 100%;
+    aspect-ratio: 5/3;
 }
 
 .picture {
@@ -31,4 +32,19 @@ img{
     top: 50%;
     transform: translatey(-50%);
     color: white;
+}
+
+.title-img {
+    position: absolute;
+    top: 70%;
+    left: 64%;
+    color: aliceblue;
+}
+
+.text-img {
+    position: absolute;
+    top: 80%;
+    left: 51%;
+    color: aliceblue;
+    margin-bottom: 0;
 }
