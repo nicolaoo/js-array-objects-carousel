@@ -88,16 +88,18 @@ arrowLeft.addEventListener('click', moveRight)
 
 
 setInterval(function () {
-    console.log('destra')
-}, 3000);
+    moveRight()
 
-
+    if(pictureAddRight === 4){
+        pictureAddRight === 1
+    }
+}, 2000);
 
 // FUNZIONI
 
 
 function moveRight(){
-    console.log('next-slide')
+    console.log(pictureAddRight)
     pictureEl[pictureAddRight].classList.remove('active')
 
     if (pictureAddRight > 0){
