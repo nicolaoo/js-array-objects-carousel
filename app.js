@@ -79,9 +79,38 @@ const arrowRight = document.getElementById('arrow-right')
 
 console.log(pictureEl, pictureAddRight)
 
-arrowRight.addEventListener('click', function () {
-    console.log('next-slide')
+arrowRight.addEventListener('click', moveLeft)
 
+
+arrowLeft.addEventListener('click', moveRight)
+
+
+
+
+setInterval(function () {
+    console.log('destra')
+}, 3000);
+
+
+
+// FUNZIONI
+
+
+function moveRight(){
+    console.log('next-slide')
+    pictureEl[pictureAddRight].classList.remove('active')
+
+    if (pictureAddRight > 0){
+        pictureAddRight--
+    } else {
+        pictureAddRight = pictureEl.length - 1
+    }
+    
+    pictureEl[pictureAddRight].classList.add('active')
+}
+
+
+function moveLeft (){
     let lastIndex = pictureEl.length - 1
 
     pictureEl[pictureAddRight].classList.remove('active')
@@ -95,20 +124,5 @@ arrowRight.addEventListener('click', function () {
     pictureEl[pictureAddRight].classList.add('active')
     console.log(lastIndex)
 
-})
 
-
-arrowLeft.addEventListener('click', function () {
-    
-   console.log('next-slide')
-    pictureEl[pictureAddRight].classList.remove('active')
-
-    if (pictureAddRight > 0){
-        pictureAddRight--
-    } else {
-        pictureAddRight = pictureEl.length - 1
-    }
-    
-    pictureEl[pictureAddRight].classList.add('active')
-
-})
+}
