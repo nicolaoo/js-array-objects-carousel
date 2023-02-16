@@ -1,8 +1,7 @@
 // dichiaro le variabili delle immagini e delle frecce
 
-const pictureEl = document.querySelectorAll('.carosello .picture')
-const arrowLeft = document.getElementById('arrow-left')
-const arrowRight = document.getElementById('arrow-right')
+
+
 const caroselloEl = document.querySelector('.carosello')
 
 let pictureAddRight = 0
@@ -49,16 +48,16 @@ for (let i = 0; i < listPicture.length; i++){
 
     // let {image, title, text} = currentImg
 
-    let classImg = `picture`
+    let className = 'picture'
         console.log(i, currentImg, image, text, title)
 
         if (i === pictureAddRight){
-            classImg += ` active`
+            className += ' active'
         }
     
 
     let htmlImg =
-    `<div class="${classImg} col-auto">
+    `<div class="${ className}">
         <img src="${image}" alt="">
         <h1 class="title-img">
             ${title}
@@ -74,6 +73,12 @@ for (let i = 0; i < listPicture.length; i++){
     
 }
 
+let pictureEl = document.querySelectorAll('.carosello .picture')
+const arrowLeft = document.getElementById('arrow-left')
+const arrowRight = document.getElementById('arrow-right')
+
+console.log(pictureEl, pictureAddRight)
+
 arrowRight.addEventListener('click', function () {
     console.log('next-slide')
 
@@ -88,7 +93,8 @@ arrowRight.addEventListener('click', function () {
     }
 
     pictureEl[pictureAddRight].classList.add('active')
-    
+    console.log(lastIndex)
+
 })
 
 
