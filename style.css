@@ -20,14 +20,14 @@ img{
     position: relative;
 }
 
-.arrow-left {
+#arrow-left {
     left: 50px;
     top: 50%;
     transform: translatey(-50%);
     color: white;
 }
 
-.arrow-right {
+#arrow-right {
     right: 50px;
     top: 50%;
     transform: translatey(-50%);
@@ -36,15 +36,28 @@ img{
 
 .title-img {
     position: absolute;
-    top: 70%;
-    left: 64%;
+    top: 0;
+    left: 0;
+    bottom: 0;
     color: aliceblue;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    margin-bottom: 50px;
+    color: azure;
 }
 
 .text-img {
     position: absolute;
-    top: 80%;
-    left: 51%;
+    top: 0;
+    left: 0;
+    bottom: 0;
     color: aliceblue;
-    margin-bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    margin-bottom: 20px;
+    color: beige;
 }

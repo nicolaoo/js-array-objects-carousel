@@ -1,8 +1,8 @@
 // dichiaro le variabili delle immagini e delle frecce
 
 const pictureEl = document.querySelectorAll('.carosello .picture')
-const arrowLeft = document.querySelector('.arrow-left')
-const arrowRight = document.querySelector('.arrow-right')
+const arrowLeft = document.getElementById('arrow-left')
+const arrowRight = document.getElementById('arrow-right')
 const caroselloEl = document.querySelector('.carosello')
 
 let pictureAddRight = 0
@@ -19,7 +19,7 @@ let pictureAddRight = 0
 let listPicture = [
     {
         image: './img/01.webp',
-        title: 'Marvel\\ s Spiderman Miles Morale',
+        title: 'Marvel Spiderman Miles Morale',
         text: 'Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man.',
     }, {
         image: './img/02.webp',
@@ -36,7 +36,7 @@ let listPicture = [
     }, {
         image: './img/05.webp',
         title: "Marvel's Avengers",
-        text: 'Marvel\\s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
+        text: 'Marvel Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
     }
 ]
 
@@ -47,15 +47,18 @@ for (let i = 0; i < listPicture.length; i++){
     let title = currentImg.title
     let text = currentImg.text
 
-    let classImg = `picture`
-    console.log(image, text, title)
+    // let {image, title, text} = currentImg
 
-    if (i === pictureAddRight){
-         classImg += ` active`
-    }
+    let classImg = `picture`
+        console.log(i, currentImg, image, text, title)
+
+        if (i === pictureAddRight){
+            classImg += ` active`
+        }
+    
 
     let htmlImg =
-    `<div class="picture col-auto active">
+    `<div class="${classImg} col-auto">
         <img src="${image}" alt="">
         <h1 class="title-img">
             ${title}
@@ -65,19 +68,18 @@ for (let i = 0; i < listPicture.length; i++){
         </p>
     </div>`
 
-    caroselloEl.innerHTML += htmlImg
+    
 
+    caroselloEl.innerHTML += htmlImg
+    
 }
 
-
-
 arrowRight.addEventListener('click', function () {
+    console.log('next-slide')
 
-    let lastIndex = listPicture.length - 1
+    let lastIndex = pictureEl.length - 1
 
-    console.log(lastIndex)
-    let pictureBefore = listPicture[pictureAddRight]
-    pictureBefore.classList.remove('active')
+    pictureEl[pictureAddRight].classList.remove('active')
 
     if ( pictureAddRight < lastIndex){
         pictureAddRight += 1
@@ -85,24 +87,22 @@ arrowRight.addEventListener('click', function () {
         pictureAddRight = 0
     }
 
-    let pictureAfter = listPicture[pictureAddRight]
-    pictureAfter.classList.add('active')
+    pictureEl[pictureAddRight].classList.add('active')
     
 })
 
 
 arrowLeft.addEventListener('click', function () {
     
-    let pictureBefore = listPicture[pictureAddRight]
-    pictureBefore.classList.remove('active')
+   console.log('next-slide')
+    pictureEl[pictureAddRight].classList.remove('active')
 
     if (pictureAddRight > 0){
         pictureAddRight--
     } else {
-        pictureAddRight = listPicture.length - 1
+        pictureAddRight = pictureEl.length - 1
     }
     
-    let pictureAfter = listPicture[pictureAddRight]
-    pictureAfter.classList.add('active')
+    pictureEl[pictureAddRight].classList.add('active')
 
 })
